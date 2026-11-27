@@ -1,0 +1,46 @@
+# Shared training and evaluation settings for every run (notebook cells 2, 13, V3-0, V3-E, V3-F)
+
+model:
+  text_encoder: xlm-roberta-base            # last 3 transformer layers + pooler trainable
+  image_encoder: openai/clip-vit-base-patch32 (vision tower)   # last 2 layers trainable
+  audio_features: emotion2vec_plus_base utterance embeddings (768-d, precomputed, frozen)
+  hidden_dim: 512
+  max_text_len: 128
+  tcaf: {layers: 2, heads: 8, ffn_dim: 2048, dropout: 0.1, norm_first: true}
+  absent_modality: zero vector + modality embedding, removed from attention by key-padding mask (tcaf_masked)
+  pooling: mean over present modality tokens
+  heads: {H1: binary (2), H2: harm type (3), H3: target group (4)}
+
+loss:
+  formula: "L = 0.50*CE(H1) + 0.20*CE(H2 on labelled rows) + 0.20*CE(H3 on labelled rows)"
+  class_weights_H1: balanced (computed on the training rows of each run)
+
+optimisation:
+  optimizer: AdamW
+  lr: 2.0e-5
+  weight_decay: 0.01
+  scheduler: OneCycleLR (pct_start 0.1)
+  batch_size: 32
+  grad_clip_norm: 1.0
+  mixed_precision: fp16 autocast (identical for all runs)
+  max_epochs: 6
+  early_stopping: {metric: binary F1 on the combined validation set, patience: 2, restore_best: true}
+  seeds: [42, 43, 44]
+  hardware: Kaggle, 1x NVIDIA T4 16 GB
+
+splits:
+  multi3hate: StratifiedGroupKFold grouped by Meme ID (5 folds -> test; 8 folds of the rest -> val), random_state 42
+  ucb_mhs: annotator ratings aggregated per comment_id, then stratified 70/10/20, random_state 42
+  hatemm: one row per video, stratified 70/10/20, random_state 42
+  cremad: GroupShuffleSplit grouped by actor, 70/30 train/val, random_state 42 (no test use)
+
+evaluation:
+  threshold: 0.5 (fixed, never tuned)
+  test_sets: [multi3hate (300 rows = 60 memes x 5 languages), hatemm (217 videos), ucb_mhs (7,918 comments)]
+  test_use: predictions written once after training; never used for checkpoint or hyperparameter selection
+  metrics: [Acc, F1, macro-F1, AUC-ROC, MCC, AP]
+  confidence_intervals: 1,000 bootstrap resamples of the test set; paired comparisons on seed-averaged predictions (seed 99)
+
+explainability_and_robustness:
+  hatexplain_plausibility: 300 posts sampled (random_state 42) from the HateXplain test division; evaluation only
+  adversarial: TextAttack DeepWordBug and TextFooler, 100 UCB MHS test hate comments (random_state 42), text-only path

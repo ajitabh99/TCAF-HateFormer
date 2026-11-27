@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite the paper below."
+title: "TCAF-HateFormer: code, configurations and predictions"
+type: software
+license: MIT
+authors:
+  - family-names: Mahalkari
+    given-names: Ajitabh
+    affiliation: "Rabindranath Tagore University, Bhopal, India"
+  - family-names: Yadav
+    given-names: Pritaj
+    affiliation: "Rabindranath Tagore University, Bhopal, India"
+  - family-names: Solanki
+    given-names: Surendra
+    affiliation: "Manipal University Jaipur, India"
+  - family-names: Raghuwanshi
+    given-names: Ghanshyam
+    affiliation: "Manipal University Jaipur, India"
+preferred-citation:
+  type: article
+  title: "Cross Modal Attention Fusion with Multitask Learning for Multilingual Multimodal Hate Speech Detection"
+  journal: "Discover Computing"
+  year: 2026
+  authors:
+    - family-names: Mahalkari
+      given-names: Ajitabh
+    - family-names: Yadav
+      given-names: Pritaj
+    - family-names: Solanki
+      given-names: Surendra
+    - family-names: Raghuwanshi
+      given-names: Ghanshyam

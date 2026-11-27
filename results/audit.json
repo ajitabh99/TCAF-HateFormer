@@ -1,0 +1,239 @@
+{
+  "old_crema_npz_shapes": {
+    "train": [
+      6697,
+      768
+    ],
+    "val": [
+      745,
+      768
+    ]
+  },
+  "old_crema_df_sizes": {
+    "train": 5209,
+    "val": 2233
+  },
+  "old_pipeline_crema_probe_auc": 0.5083545982728545,
+  "crema_extraction_failures": 0,
+  "v3_crema_probe_val_auc": 0.9823044004881546,
+  "v3_crema_split": {
+    "train": 5152,
+    "val": 2290,
+    "train_actors": 63,
+    "val_actors": 28
+  },
+  "hatemm_videos_with_audio_embedding": "1083/1083",
+  "hatemm_audio_probe_cv_auc": 0.8526928594177015,
+  "old_pipeline_hatemm_train_rows_reading_crema_block": 758,
+  "m3h_missing_images": 0,
+  "m3h_unique_image_files": 1500,
+  "m3h_test_rows_same_image_file_in_train_or_val": "0/300",
+  "m3h_group_key": "Meme ID",
+  "m3h_unique_memes": 300,
+  "m3h_test_rows_same_meme_in_train_or_val": "300/300",
+  "m3h_resplit_applied": true,
+  "m3h_split_sizes": {
+    "train": 1050,
+    "val": 150,
+    "test": 300
+  },
+  "m3h_test_label_counts": {
+    "1": 172,
+    "0": 128
+  },
+  "m3h_test_language_counts": {
+    "en": 60,
+    "de": 60,
+    "es": 60,
+    "hi": 60,
+    "zh": 60
+  },
+  "hmm_h3_before_fix": {
+    "-1": {
+      "0": 11,
+      "1": 1
+    },
+    "0": {
+      "0": 149,
+      "1": 293
+    },
+    "1": {
+      "0": 18,
+      "1": 22
+    },
+    "3": {
+      "0": 474,
+      "1": 115
+    }
+  },
+  "hmm_h3_rule": "parsed plain/comma/list targets; Blacks/Asians/Whites->Race, Jews/Muslims/Christians->Religion, LGBTQ/Women/'Sexits'->Gender, Others->Other; first-listed target for multi-target videos; hateful videos only",
+  "ucb_insult_scale": {
+    "min": 0.0,
+    "max": 4.0,
+    "midpoint": 2.0,
+    "per_annotator_counts": {
+      "0.0": 18476,
+      "1.0": 14667,
+      "2.0": 18587,
+      "3.0": 39673,
+      "4.0": 44153
+    }
+  },
+  "ucb_h2_before_fix": {
+    "1": 28107,
+    "2": 9046,
+    "0": 2412
+  },
+  "label_dist": {
+    "ucb_binary": {
+      "0": 30519,
+      "1": 9046
+    },
+    "ucb_h2": {
+      "Offensive": 20071,
+      "Normal": 10448,
+      "Hate": 9046
+    },
+    "ucb_h3": {
+      "Race/Ethnicity/Origin": 18645,
+      "Gender/Sexuality": 16196,
+      "Religion": 3939,
+      "Other": 783,
+      "excluded (no label)": 2
+    },
+    "m3h_binary": {
+      "1": 870,
+      "0": 630
+    },
+    "m3h_h3": {
+      "excluded (no label)": 905,
+      "Race/Ethnicity/Origin": 330,
+      "Religion": 265
+    },
+    "hmm_binary": {
+      "0": 652,
+      "1": 431
+    },
+    "hmm_h3": {
+      "excluded (no label)": 653,
+      "Race/Ethnicity/Origin": 337,
+      "Religion": 74,
+      "Other": 10,
+      "Gender/Sexuality": 9
+    },
+    "crema_binary": {
+      "1": 3813,
+      "0": 3629
+    }
+  },
+  "m3h_raw_category_values": {
+    "Countries": 390,
+    "Ethnicity": 330,
+    "Religion": 265,
+    "null": 225,
+    "Cultural and Political Topics": 195,
+    "Sexual Orientation and Gender Identity": 95
+  },
+  "hmm_raw_target_values": {
+    "Blacks": 442,
+    "Others": 326,
+    "['Jews']": 73,
+    "['Others']": 71,
+    "Jews": 32,
+    "[]": 31,
+    "Whites": 15,
+    "NaN": 12,
+    "Blacks,Jews": 11,
+    "Muslims": 8,
+    "Whites,Blacks": 8,
+    "['Whites']": 6,
+    "Blacks,Others": 6,
+    "Blacks,LGBTQ": 5,
+    "['Blacks', 'Jews']": 5,
+    "Sexits": 3,
+    "LGBTQ": 3,
+    "['LGBTQ', 'Jews']": 2,
+    "Muslims,Blacks,LGBTQ": 2,
+    "['Blacks']": 2,
+    "['Blacks', 'Whites']": 2,
+    "['LGBTQ']": 2,
+    "['Others', 'Jews']": 2,
+    "['Muslims']": 2,
+    "Blacks,Muslims": 2,
+    "Asian,Blacks,Jews": 1,
+    "Muslims,Blacks,Jews": 1,
+    "Sexits,Others": 1,
+    "Sexits,Blacks,LGBTQ": 1,
+    "Sexits,Muslims": 1,
+    "Muslims,Blacks": 1,
+    "Asian,Blacks": 1,
+    "['Jews', 'Whites']": 1,
+    "['Sexits', 'Jews']": 1,
+    "['Others', 'Whites']": 1
+  },
+  "hmm_raw_targets_unparsed": {
+    "[]": 31
+  },
+  "hmm_raw_targets_of_hate_videos": {
+    "Blacks": 293,
+    "['Jews']": 46,
+    "Jews": 20,
+    "Blacks,Jews": 11,
+    "Whites": 10,
+    "['Others']": 5,
+    "Blacks,LGBTQ": 5,
+    "['Blacks', 'Jews']": 5,
+    "['Whites']": 3,
+    "Others": 3,
+    "['LGBTQ', 'Jews']": 2,
+    "Muslims,Blacks,LGBTQ": 2,
+    "Sexits": 2,
+    "Blacks,Muslims": 2,
+    "Muslims": 2,
+    "['Blacks', 'Whites']": 2,
+    "['Others', 'Jews']": 2,
+    "Whites,Blacks": 2,
+    "Blacks,Others": 2,
+    "Asian,Blacks,Jews": 1,
+    "Muslims,Blacks,Jews": 1,
+    "Muslims,Blacks": 1,
+    "LGBTQ": 1,
+    "Sexits,Blacks,LGBTQ": 1,
+    "Sexits,Muslims": 1,
+    "['Muslims']": 1,
+    "NaN": 1,
+    "['Jews', 'Whites']": 1,
+    "['Sexits', 'Jews']": 1,
+    "['Blacks']": 1,
+    "['LGBTQ']": 1
+  },
+  "ucb_binary_rule": "mean of annotator 'hatespeech' item (0-2) per comment, min-max normalised, label=1 if >=0.5 (i.e. original mean >= 1)",
+  "ucb_h2_rule": "Hate if binary=1; else Offensive if mean annotator 'insult' >= 2 (midpoint of 0-4 scale); else Normal",
+  "images_found": {
+    "train_m3h": "1050/1050",
+    "train_hmm": "756/758",
+    "test_m3h": "300/300",
+    "test_hmm": "217/217"
+  },
+  "v3_sizes": {
+    "train": {
+      "ucb": 27695,
+      "crema": 5152,
+      "m3h": 1050,
+      "hmm": 758
+    },
+    "val": {
+      "ucb": 3952,
+      "crema": 2290,
+      "m3h": 150,
+      "hmm": 108
+    },
+    "test": {
+      "m3h": 300,
+      "hmm": 217,
+      "ucb": 7918
+    }
+  },
+  "hatexplain_eligible_test_posts": 1032,
+  "hatexplain_model_predicts_hate_rate": 0.66
+}

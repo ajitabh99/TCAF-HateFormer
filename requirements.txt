@@ -1,0 +1,19 @@
+# Verifying the reported results (scripts/reproduce_tables.py)
+numpy
+pandas
+scikit-learn
+
+# Re-running the full pipeline (Kaggle GPU image). Exact versions used: see environment.txt
+torch
+transformers
+datasets
+funasr
+modelscope
+librosa
+soundfile
+textattack
+shap
+lime
+matplotlib
+seaborn
+networkx

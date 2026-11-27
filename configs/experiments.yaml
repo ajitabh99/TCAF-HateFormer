@@ -1,0 +1,23 @@
+# Every configuration reported in the manuscript, exactly as defined in
+# notebooks/ctat-hatefromer_V3.2_corrected_pipeline.ipynb, cell "V3-G: Experiment plan".
+# Run name pattern: <name>__s<seed>; predictions in results/preds/<name>__s<seed>__<m3h|hmm|ucb>.npz
+#
+# fields: fusion = fusion module (cell V3-E), modalities = modalities the model may use,
+#         exclude = training sources removed, frozen = both encoders frozen, seeds = seeds run,
+#         manuscript = where the result is reported
+
+experiments:
+  - {name: tcaf_masked,          fusion: tcaf_masked,     modalities: [text, image, audio], exclude: [],      frozen: false, seeds: [42, 43, 44], manuscript: "Proposed model; Tables 6-9, 13"}
+  - {name: mean_masked,          fusion: mean_masked,     modalities: [text, image, audio], exclude: [],      frozen: false, seeds: [42, 43, 44], manuscript: "Mean pooling (no attention); Tables 6, 7, 9"}
+  - {name: gating_masked,        fusion: gating_masked,   modalities: [text, image, audio], exclude: [],      frozen: false, seeds: [42, 43, 44], manuscript: "Learned gating; Tables 6, 7"}
+  - {name: tcaf_original,        fusion: tcaf_original,   modalities: [text, image, audio], exclude: [],      frozen: false, seeds: [42, 43, 44], manuscript: "Unmasked (original) configuration; Tables 7, 9"}
+  - {name: late_masked,          fusion: late_masked,     modalities: [text, image, audio], exclude: [],      frozen: false, seeds: [42, 43, 44], manuscript: "Late fusion; Tables 6, 7"}
+  - {name: text_only,            fusion: mean_masked,     modalities: [text],               exclude: [],      frozen: false, seeds: [42, 43, 44], manuscript: "Unimodal baseline; Tables 6, 7"}
+  - {name: image_only,           fusion: mean_masked,     modalities: [image],              exclude: [],      frozen: false, seeds: [42, 43, 44], manuscript: "Unimodal baseline; Tables 6, 7"}
+  - {name: audio_only,           fusion: mean_masked,     modalities: [audio],              exclude: [],      frozen: false, seeds: [42, 43, 44], manuscript: "Unimodal baseline; Tables 6, 7"}
+  - {name: tcaf_masked_no_audio, fusion: tcaf_masked,     modalities: [text, image],        exclude: [],      frozen: false, seeds: [42, 43, 44], manuscript: "Ablation; Table 9"}
+  - {name: tcaf_masked_no_crema, fusion: tcaf_masked,     modalities: [text, image, audio], exclude: [crema], frozen: false, seeds: [42, 43, 44], manuscript: "Ablation; Table 9"}
+  - {name: mlca_masked,          fusion: mlca_masked,     modalities: [text, image, audio], exclude: [],      frozen: false, seeds: [42, 43, 44], manuscript: "Re-implemented MLCA [50]; Tables 6, 7"}
+  - {name: cmfusion_masked,      fusion: cmfusion_masked, modalities: [text, image, audio], exclude: [],      frozen: false, seeds: [42, 43, 44], manuscript: "Re-implemented CMFusion [51]; Tables 6, 7"}
+  - {name: tcaf_masked_no_text,  fusion: tcaf_masked,     modalities: [image, audio],       exclude: [],      frozen: false, seeds: [42],         manuscript: "Ablation (single seed); Table 9"}
+  - {name: tcaf_masked_frozen,   fusion: tcaf_masked,     modalities: [text, image, audio], exclude: [],      frozen: true,  seeds: [42],         manuscript: "Ablation (single seed); Table 9"}
